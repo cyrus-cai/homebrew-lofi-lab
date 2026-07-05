@@ -1,6 +1,6 @@
 cask "notch" do
-  version "0.1.8"
-  sha256 "917b67f599707ad07bf749940894bcc475814ae6296b7c2203e27b5ebb39d88f"
+  version "0.1.9"
+  sha256 "5db92a5087cf3a63a693b769e6edc2230fd314ba5f75e2a14ffa83a0dd7c59c7"
 
   url "https://github.com/cyrus-cai/notch/releases/download/v#{version}/Notch-v#{version}.zip"
   name "Notch"
