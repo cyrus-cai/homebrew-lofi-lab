@@ -1,11 +1,8 @@
 cask "notchi" do
-  version "0.1.10"
-  sha256 "32f90155d709437456f7fa9d475cb00db17acbb6e94599c071affe590d9327ae"
+  version "0.1.11"
+  sha256 "e078aa3f8ef7af87c9a19470fc3b33a5cbeb1dc08340caa9ac00e712dc91fc9e"
 
-  # v0.1.10 predates the Notch → Notchi rename, so the release asset and the
-  # bundle inside it are still named Notch. Both flip to Notchi from the next
-  # release — update the url pattern and the app stanza when bumping.
-  url "https://github.com/cyrus-cai/notchi/releases/download/v#{version}/Notch-v#{version}.zip"
+  url "https://github.com/cyrus-cai/notchi/releases/download/v#{version}/Notchi-v#{version}.zip"
   name "Notchi"
   desc "Liquid-glass notch companion with built-in AI ask, notes, and reminders"
   homepage "https://github.com/cyrus-cai/notchi"
@@ -16,11 +13,11 @@ cask "notchi" do
   auto_updates false
   depends_on macos: :sonoma
 
-  app "Notch.app"
+  app "Notchi.app"
 
   postflight do
     system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Notch.app"],
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Notchi.app"],
                    sudo: false
   end
 
