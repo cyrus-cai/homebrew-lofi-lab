@@ -1,0 +1,22 @@
+#!/bin/sh
+# commit-msg hook — refuse any commit carrying an agent signature or
+# attribution trailer (Co-authored-by, Co-Authored-By, "Generated with…",
+# "Made by…", …). This history is the owner's; no agent signs its work.
+# See AGENTS.md in the notchi repo for the rule this enforces.
+#
+# Trailer matching is deliberately anchored: the forbidden forms are checked
+# only at line starts (where a trailer would sit), so ordinary prose mentioning
+# "attribution", "co-authoring", etc. in the body is never caught.
+
+file="$1"
+[ -s "$file" ] || exit 0
+
+if grep -qiE '^[[:space:]]*co[-_ ]?authored(-by|:)' "$file" \
+   || grep -qiE '^[[:space:]]*generated (with|by)' "$file" \
+   || grep -qiE '^[[:space:]]*made by ' "$file"; then
+    echo "error: commit message contains a co-author/attribution trailer." >&2
+    echo "Rewrite the message without any signature, then commit again." >&2
+    exit 1
+fi
+
+exit 0
