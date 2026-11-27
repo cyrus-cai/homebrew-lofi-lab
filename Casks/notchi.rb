@@ -1,6 +1,6 @@
 cask "notchi" do
-  version "0.9.47"
-  sha256 "b9978b323a6c6a9f1c14cbbd37894d54ad20d811f9fd389fff71fc15a5fb22d1"
+  version "0.9.48"
+  sha256 "fed754f9c43527ecbca3aae1245b817d3bfe761c873e5ad91a0aee70c69d0c78"
 
   url "https://github.com/cyrus-cai/notchi/releases/download/v#{version}/Notchi-v#{version}.zip"
   name "Notchi"
